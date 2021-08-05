@@ -18,28 +18,28 @@ export default class BoatDetailTabs extends LightningElement {
     labelFullDetails,
     labelPleaseSelectABoat,
   };
-  
+
   // Decide when to show or hide the icon
   // returns 'utility:anchor' or null
   get detailsTabIconName() { }
-  
+
   // Utilize getFieldValue to extract the boat name from the record wire
   get boatName() { }
-  
+
   // Private
   subscription = null;
-  
+
   // Subscribe to the message channel
   subscribeMC() {
     // local boatId must receive the recordId from the message
   }
-  
+
   // Calls subscribeMC()
   connectedCallback() { }
-  
+
   // Navigates to record page
   navigateToRecordViewPage() { }
-  
+
   // Navigates back to the review list, and refreshes reviews component
   handleReviewCreated() { }
 }
