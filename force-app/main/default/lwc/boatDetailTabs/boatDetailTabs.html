@@ -1,8 +1,29 @@
 <template>
   <template if:false={wiredRecord.data}>
     <!-- lightning card for the label when wiredRecord has no data goes here  -->
+    <lightning-card>
+      <span class="slds-align_absolute-center no-boat-height">{label.labelPleaseSelectABoat}</span>
+    </lightning-card>
   </template>
   <template if:true={wiredRecord.data}>
-     <!-- lightning card for the content when wiredRecord has data goes here  -->
+    <!-- lightning card for the content when wiredRecord has data goes here  -->
+    <lightning-tabset variant="scoped">
+      <!-- Details -->
+      <lightning-tab label={label.labelDetails}>
+        <lightning-card>
+          
+        </lightning-card>
+      </lightning-tab>
+
+      <!-- Reviews -->
+      <lightning-tab label={label.labelReviews}>
+
+      </lightning-tab>
+
+      <!-- Add Review -->
+      <lightning-tab label={label.labelAddReview}>
+
+      </lightning-tab>
+    </lightning-tabset>
   </template>
 </template>
