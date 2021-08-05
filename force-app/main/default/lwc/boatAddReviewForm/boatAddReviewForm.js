@@ -1,11 +1,14 @@
 // imports
 import { LightningElement, api, wire, track } from 'lwc';
 // import BOAT_REVIEW_OBJECT from schema - BoatReview__c
+import BOAT_REVIEW_OBJECT from '@salesforce/schema/BoatReview__c';
 // import NAME_FIELD from schema - BoatReview__c.Name
+import NAME_FIELD from '@salesforce/schema/BoatReview__c.Name';
 // import COMMENT_FIELD from schema - BoatReview__c.Comment__c
+import COMMENT_FIELD from '@salesforce/schema/BoatReview__c.Comment__c';
 export default class BoatAddReviewForm extends LightningElement {
   // Private
-  @api boatId;
+  boatId;
   rating;
   boatReviewObject = BOAT_REVIEW_OBJECT;
   nameField        = NAME_FIELD;
@@ -14,10 +17,15 @@ export default class BoatAddReviewForm extends LightningElement {
   labelRating  = 'Rating';
   
   // Public Getter and Setter to allow for logic to run on recordId change
-  get recordId() { }
+  @api
+  get recordId() { 
+    return this.boatId
+  }
   set recordId(value) {
     //sets boatId attribute
+    this.setAttribute('boatId', value);
     //sets boatId assignment
+    this.boatId = value;
   }
   
   // Gets user rating input from stars component
