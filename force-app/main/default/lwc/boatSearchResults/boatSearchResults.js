@@ -87,7 +87,7 @@ export default class BoatSearchResults extends LightningElement {
   // Publishes the selected boat Id on the BoatMC.
   sendMessageService(boatId) { 
     // explicitly pass boatId to the parameter recordId
-    publish(this.messageContext, BOATMC, { recordId : selectedBoatId });
+    publish(this.messageContext, BOATMC, { recordId : boatId });
   }
 
   // The handleSave method must save the changes in the Boat Editor 
