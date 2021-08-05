@@ -121,8 +121,8 @@ export default class BoatSearchResults extends LightningElement {
             title : ERROR_TITLE,
             message : error.body.message,
             variant : ERROR_VARIANT
-        });
-        this.dispatchEvent(toastEvent);
+          });
+          this.dispatchEvent(toastEvent);
       }).finally(() => {
           this.draftValues = [];
       });
