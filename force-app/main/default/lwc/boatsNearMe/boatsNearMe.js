@@ -22,13 +22,7 @@ export default class BoatsNearMe extends LightningElement {
 	@wire(getBoatsByLocation, {latitude: '$latitude', longitude: '$longitude', boatTypeId: '$boatTypeId' })
 	wiredBoatsJSON({ error, data }) { 
 		if(data) {
-			console.log('sucesso')
-			try {
-				this.createMapMarkers(data);
-			} catch (error) {
-				console.log('error ', e)
-			}
-			
+			this.createMapMarkers(data);
 		}
 		else if(error) {
 			this.dispatchEvent(
