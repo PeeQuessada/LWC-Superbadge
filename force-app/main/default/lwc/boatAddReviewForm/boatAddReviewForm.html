@@ -1,6 +1,6 @@
 <template>
   <!-- lightning data service code -->
-  <lightning-record-edit-form object-api-name={boatReviewObject} >
+  <lightning-record-edit-form object-api-name={boatReviewObject} onsuccess={handleSuccess} onsubmit={handleSubmit} >
     <lightning-layout multiple-rows vertical-align="start">
       <lightning-layout-item size="8" padding="horizontal-small">
         <div class="slds-form-element">
@@ -14,7 +14,7 @@
           <label class="slds-form-element__label" for="record-name">{labelRating}</label>
           <div class="slds-form-element__control">
             <!-- add five star rating component -->
-            <c-five-star-rating read-only="false"></c-five-star-rating>
+            <c-five-star-rating onratingchange={handleRatingChanged}></c-five-star-rating>
           </div>
         </div>
       </lightning-layout-item>
@@ -25,7 +25,7 @@
     </lightning-layout>
     <div class="slds-align_absolute-center" style="margin-top: 5px">
       <!-- add submit button -->
-      <lightning-button label="Submit" title="Submit" onclick={handleSubmit} type="submit"></lightning-button>
+      <lightning-button icon-name="utility:save" label="Submit" title="Submit" type="submit"></lightning-button>
     </div>
   </lightning-record-edit-form>
 </template>
