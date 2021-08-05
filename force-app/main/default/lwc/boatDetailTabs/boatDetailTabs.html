@@ -9,7 +9,7 @@
     <!-- lightning card for the content when wiredRecord has data goes here  -->
     <lightning-tabset variant="scoped">
       <!-- Details -->
-      <lightning-tab label={label.labelDetails}>
+      <lightning-tab label={label.labelDetails} value={label.labelDetails}>
         <lightning-card title={boatName}>
           <lightning-button label={label.labelFullDetails} title={label.labelFullDetails} slot="actions" onclick={navigateToRecordViewPage}></lightning-button>
           <lightning-record-view-form object-api-name="Boat__c" record-id={boatId} density="compact">
@@ -22,13 +22,13 @@
       </lightning-tab>
 
       <!-- Reviews -->
-      <lightning-tab label={label.labelReviews}>
+      <lightning-tab label={label.labelReviews} value={label.labelReviews}>
 
       </lightning-tab>
 
       <!-- Add Review -->
-      <lightning-tab label={label.labelAddReview}>
-        <c-boat-add-review-form></c-boat-add-review-form>
+      <lightning-tab label={label.labelAddReview} value={label.labelAddReview}>
+        <c-boat-add-review-form boat-id={boatId} oncreatereview={handleReviewCreated}></c-boat-add-review-form>
       </lightning-tab>
     </lightning-tabset>
   </template>

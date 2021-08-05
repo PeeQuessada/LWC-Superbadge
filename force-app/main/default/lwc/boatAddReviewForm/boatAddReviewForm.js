@@ -1,10 +1,11 @@
 // imports
+import { LightningElement, api, wire, track } from 'lwc';
 // import BOAT_REVIEW_OBJECT from schema - BoatReview__c
 // import NAME_FIELD from schema - BoatReview__c.Name
 // import COMMENT_FIELD from schema - BoatReview__c.Comment__c
 export default class BoatAddReviewForm extends LightningElement {
   // Private
-  boatId;
+  @api boatId;
   rating;
   boatReviewObject = BOAT_REVIEW_OBJECT;
   nameField        = NAME_FIELD;
