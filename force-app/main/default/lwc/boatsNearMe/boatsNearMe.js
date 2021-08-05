@@ -87,9 +87,9 @@ export default class BoatsNearMe extends LightningElement {
 			const Longitude = boat.Geolocation__Longitude__s;
 			return {
 				location: { Latitude, Longitude },
-				title: LABEL_YOU_ARE_HERE,
-				icon: ICON_STANDARD_USER
-				//description: `Coords: ${Latitude}, ${Longitude}`,
+				title: boat.Name,
+				description: `Coords: ${Latitude}, ${Longitude}`,
+				icon: 'utility:anchor'
 			};
 		});
 
