@@ -6,8 +6,8 @@
           <div class="slds-scrollable_y">
             <lightning-layout multiple-rows>
               <template for:each={boats} for:item="boat">
-                <lightning-layout-item class="slds-align--absolute-center" flexibility="auto" padding="around-small" key={boat.Id}>
-                  <c-boat-tile boat={boat} selected-boat-id={currentlySelectedBoatId} onboatselect={updateSelectedTile}></c-boat-tile>
+                <lightning-layout-item class="slds-align_absolute-center" flexibility="auto" padding="around-small" size="12" small-device-size="6" medium-device-size="4" large-device-size="3" key={boat.Id}>
+                  <c-boat-tile boat={boat} selected-boat-id={selectedBoatId} onboatselect={updateSelectedTile}></c-boat-tile>
                 </lightning-layout-item>
               </template>
             </lightning-layout>

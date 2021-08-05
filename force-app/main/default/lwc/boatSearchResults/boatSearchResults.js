@@ -23,7 +23,7 @@ export default class BoatSearchResults extends LightningElement {
   @api boatTypeId = '';
   @track boats;
   isLoading;
-  currentlySelectedBoatId;
+  selectedBoatId;
 
   columns = COLUMNS;
   saveDraftValues = [];
@@ -47,7 +47,7 @@ export default class BoatSearchResults extends LightningElement {
 
   updateSelectedTile(event) {
     const detail = event.detail;
-    this.currentlySelectedBoatId = detail.boatId;
+    this.selectedBoatId = detail.boatId;
   }
 
   async handleSave(event) {
