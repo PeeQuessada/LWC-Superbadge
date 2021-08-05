@@ -10,13 +10,14 @@
     <lightning-tabset variant="scoped">
       <!-- Details -->
       <lightning-tab label={label.labelDetails} value={label.labelDetails}>
-        <lightning-card title={boatName}>
+        <lightning-card icon-name={detailsTabIconName} title={boatName}>
           <lightning-button label={label.labelFullDetails} title={label.labelFullDetails} slot="actions" onclick={navigateToRecordViewPage}></lightning-button>
+          
           <lightning-record-view-form object-api-name="Boat__c" record-id={boatId} density="compact">
-            <lightning-output-field field-name="BoatType__c"></lightning-output-field>
-            <lightning-output-field field-name="Length__c"></lightning-output-field>
-            <lightning-output-field field-name="Price__c"></lightning-output-field>
-            <lightning-output-field field-name="Description__c"></lightning-output-field>
+            <lightning-output-field class="slds-form-element_1-col" field-name="BoatType__c"></lightning-output-field>
+            <lightning-output-field class="slds-form-element_1-col" field-name="Length__c"></lightning-output-field>
+            <lightning-output-field class="slds-form-element_1-col" field-name="Price__c"></lightning-output-field>
+            <lightning-output-field class="slds-form-element_1-col" field-name="Description__c"></lightning-output-field>
           </lightning-record-view-form>
         </lightning-card>
       </lightning-tab>
