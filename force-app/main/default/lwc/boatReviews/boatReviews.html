@@ -21,14 +21,13 @@
                 <header class="slds-post__header slds-media">
                   <div class="slds-media__figure">
                     <!-- display the creator’s picture -->
-                    <lightning-avatar src={boatReview.CreatedBy.SmallPhotoUrl}></lightning-avatar>
+                    <lightning-avatar class="slds-avatar_circle" variant="circle" src={boatReview.CreatedBy.SmallPhotoUrl}></lightning-avatar>
                   </div>
                   <div class="slds-media__body">
                     <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
                       <p>
                         <!-- display creator’s name -->
-                        
-                        <span class="hyperlink" data-record-id={boatReview.CreatedBy.Id} onclick={navigateToRecord}>{boatReview.CreatedBy.Name}</span>
+                        <a onclick={navigateToRecord} data-record-id={boatReview.CreatedBy.Id} title={boatReview.CreatedBy.Name}>{boatReview.CreatedBy.Name}</a>
                         <!-- display creator’s company name -->
                         <span> - {boatReview.CreatedBy.CompanyName}</span>
                       </p>
@@ -40,10 +39,14 @@
                   </div>
                 </header>
                 <div class="slds-text-longform">
-                  <p class="slds-text-title_caps"><!-- display Name --></p>
+                  <!-- display Name -->
+                  <p class="slds-text-title_caps">{boatReview.Name}</p>
                   <!-- display Comment__c -->
+                    <lightning-formatted-rich-text value={boatReview.Comment__c}></lightning-formatted-rich-text>
+                  </p>
                 </div>
-                <!-- display five star rating on readonly mode -->
+                <!-- display five star rating on readonly mode {boatReview.Rating__c} -->
+                <c-five-star-rating read-only="true" value={boatReview.Rating__c}></c-five-star-rating>
               </article>
             </li>
           </template>
