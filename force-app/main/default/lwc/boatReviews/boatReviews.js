@@ -2,10 +2,9 @@
 import { LightningElement, api, wire, track } from 'lwc';
 
 import getAllReviews from '@salesforce/apex/BoatDataService.getAllReviews'
+import { NavigationMixin } from 'lightning/navigation';
 
-import { ShowToastEvent } from 'lightning/platformShowToastEvent'
-
-export default class BoatReviews extends LightningElement {
+export default class BoatReviews extends NavigationMixin(LightningElement) {
   // Private
   boatId;
   error;
@@ -23,7 +22,7 @@ export default class BoatReviews extends LightningElement {
     //sets boatId assignment
     this.setAttribute('boatId', value);
     //get reviews associated with boatId
-    getReviews();
+    this.getReviews();
   }
   
   // Getter to determine if there are reviews to display
@@ -60,5 +59,14 @@ export default class BoatReviews extends LightningElement {
   }
   
   // Helper method to use NavigationMixin to navigate to a given record on click
-  navigateToRecord(event) {  }
+  navigateToRecord(event) { 
+    this[NavigationMixin.Navigate]({
+      type: 'standard__recordPage',
+      attributes: {
+        objectApiName: "user",
+        recordId: event.target.dataset.recordId,
+        actionName: 'view',
+      },
+    });
+  }
 }

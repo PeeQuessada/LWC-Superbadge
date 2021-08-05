@@ -1,3 +1,9 @@
 .reviews-style {
   max-height: 250px;
 }
+
+.hyperlink {
+  cursor:pointer;
+  color:blue;
+  text-decoration:underline;
+}
