@@ -1,6 +1,7 @@
 import { LightningElement, api, wire, track } from 'lwc';
 // Functions to getRecords import
 import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
+import { NavigationMixin } from 'lightning/navigation';
 
 // Lightning Message Channel import
 import { APPLICATION_SCOPE,subscribe,MessageContext } from 'lightning/messageService';
@@ -24,7 +25,7 @@ import BOAT_ID_FIELD from '@salesforce/schema/Boat__c.Id';
 // import BOAT_NAME_FIELD for the boat Name
 import BOAT_NAME_FIELD from '@salesforce/schema/Boat__c.Name';
 const BOAT_FIELDS = [BOAT_ID_FIELD, BOAT_NAME_FIELD];
-export default class BoatDetailTabs extends LightningElement {
+export default class BoatDetailTabs extends NavigationMixin(LightningElement) {
   boatId;
   label = {
     labelDetails,
@@ -81,7 +82,16 @@ export default class BoatDetailTabs extends LightningElement {
   }
 
   // Navigates to record page
-  navigateToRecordViewPage() { }
+  navigateToRecordViewPage() { 
+    this[NavigationMixin.Navigate]({
+      type: 'standard__recordPage',
+      attributes: {
+        objectApiName: "Boat__c",
+        recordId: this.boatId,
+        actionName: 'view',
+      },
+    });
+  }
 
   // Navigates back to the review list, and refreshes reviews component
   handleReviewCreated() { }
